@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlkeWallet Verify 2FA</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Verify Two-Factor Authentication</h2>
+        <p>Enter the verification code from your 2FA app:</p>
+        <form th:action="@{/2fa-verify}" method="post">
+            <div class="form-group">
+                <label for="code">Verification Code</label>
+                <input type="text" class="form-control" id="code" name="code" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Verify</button>
+        </form>
+        <p th:if="${error}" th:text="${error}"></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
